@@ -36,6 +36,7 @@
 		<Unit filename="ChessBoard.h" />
 		<Unit filename="ChessFunction.cpp" />
 		<Unit filename="ChessFunction.h" />
+		<Unit filename="MoveTemplate.h" />
 		<Unit filename="main.cpp" />
 		<Extensions>
 			<code_completion />

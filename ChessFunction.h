@@ -9,6 +9,7 @@ namespace ChessFunction
     std::vector<ChessBoard> getPossibleMoves(ChessBoard cb);
     bool ownPiece(ChessPiece cp, PlayerColour turn);
 
+
 }
 
 #endif // CHESSFUNCTION_H_INCLUDED

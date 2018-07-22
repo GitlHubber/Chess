@@ -5,7 +5,7 @@
 
 enum PlayerColour
 {
-    WHITE, Black
+    WHITE, BLACK
 };
 
 typedef char ChessPiece;
@@ -38,14 +38,14 @@ class ChessBoard
     PlayerColour turn;
 public:
     ChessBoard();
-    bool isCheckMate();
-    bool isCheck();
-    bool isEmpty(char file, int rank);
+    bool isCheckMate() const;
+    bool isCheck() const;
+    bool isEmpty(char file, int rank) const;
     void placePiece(char file, int rank, ChessPiece piece);
     ChessPiece getPiece(char file, int rank) const;
-    ChessBoard move(char fileFrom, int rankFrom, char fileTo, int rankTo);
-    PlayerColour getTurn();
-    void debugPrint();
+    ChessBoard move(char fileFrom, int rankFrom, char fileTo, int rankTo) const;
+    PlayerColour getTurn() const;
+    void debugPrint() const;
 
     ChessBoardIterator begin();
     ChessBoardIterator end();

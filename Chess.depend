@@ -17,3 +17,26 @@
 	<vector>
 	"ChessBoard.h"
 
+1532268335 source:h:\апава\cb_projects\chess\chessboard.cpp
+	"ChessBoard.h"
+	<iostream>
+
+1532268335 h:\апава\cb_projects\chess\chessboard.h
+	<iterator>
+
+1532271214 source:h:\апава\cb_projects\chess\chessfunction.cpp
+	"ChessFunction.h"
+	"MoveTemplate.h"
+
+1532265154 h:\апава\cb_projects\chess\chessfunction.h
+	<vector>
+	"ChessBoard.h"
+
+1532269138 source:h:\апава\cb_projects\chess\main.cpp
+	<iostream>
+	"ChessBoard.h"
+	"ChessFunction.h"
+
+1532271190 h:\апава\cb_projects\chess\movetemplate.h
+	<vector>
+

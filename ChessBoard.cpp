@@ -1,7 +1,7 @@
 #include "ChessBoard.h"
 #include <iostream>
 
-ChessBoard::ChessBoard()
+ChessBoard::ChessBoard() : turn(WHITE)
 {
     for(int i = 0; i < 8; ++i)
     {
@@ -12,7 +12,7 @@ ChessBoard::ChessBoard()
     }
 }
 
-void ChessBoard::debugPrint()
+void ChessBoard::debugPrint() const
 {
     std::cout << ' ';
     for(int i = 0; i < 8; ++i)
@@ -33,7 +33,7 @@ void ChessBoard::debugPrint()
     }
 }
 
-PlayerColour ChessBoard::getTurn()
+PlayerColour ChessBoard::getTurn() const
 {
     return turn;
 }
@@ -43,11 +43,11 @@ void ChessBoard::placePiece(char file, int rank, ChessPiece piece)
     board[rank-1][file - 'A'] = piece;
 }
 
-ChessBoard ChessBoard::move(char fileFrom, int rankFrom, char fileTo, int rankTo)
+ChessBoard ChessBoard::move(char fileFrom, int rankFrom, char fileTo, int rankTo) const
 {
     ChessBoard result(*this);
     result.placePiece(fileTo, rankTo, this->getPiece(fileFrom, rankFrom));
-    this->placePiece(fileFrom, rankFrom, ' ');
+    result.placePiece(fileFrom, rankFrom, ' ');
     return result;
 }
 
@@ -56,7 +56,7 @@ ChessPiece ChessBoard::getPiece(char file, int rank) const
     return board[rank - 1][file - 'A'];
 }
 
-bool ChessBoard::isEmpty(char file, int rank)
+bool ChessBoard::isEmpty(char file, int rank) const
 {
     return (board[rank - 1][file - 'A'] == ' ');
 }
@@ -81,7 +81,7 @@ bool ChessBoardIterator::operator!=(const ChessBoardIterator& that)
 
 bool ChessBoardIterator::operator==(const ChessBoardIterator& that)
 {
-    return this->rank == that.rank && this->file;
+    return this->rank == that.rank && this->file == that.file;
 }
 
 ChessBoardIterator::value_type ChessBoardIterator::operator*() const
@@ -92,7 +92,7 @@ ChessBoardIterator::value_type ChessBoardIterator::operator*() const
 ChessBoardIterator& ChessBoardIterator::operator++()
 {
     ++file;
-    if(file >= 8)
+    if(file == 8)
     {
         ++rank;
         file = 0;
